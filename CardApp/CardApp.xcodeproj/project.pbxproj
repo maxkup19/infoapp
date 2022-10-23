@@ -7,30 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A04F08E28FD638A0001A43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A04F08D28FD638A0001A43F /* Assets.xcassets */; };
 		0A51D2FE28F3277D00AD87A1 /* CardAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D2FD28F3277D00AD87A1 /* CardAppApp.swift */; };
-		0A51D30028F3277D00AD87A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D2FF28F3277D00AD87A1 /* ContentView.swift */; };
-		0A51D30228F3277E00AD87A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A51D30128F3277E00AD87A1 /* Assets.xcassets */; };
+		0A51D30028F3277D00AD87A1 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D2FF28F3277D00AD87A1 /* StudentView.swift */; };
 		0A51D30528F3277E00AD87A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A51D30428F3277E00AD87A1 /* Preview Assets.xcassets */; };
 		0A51D30D28F32BC100AD87A1 /* SMItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D30C28F32BC100AD87A1 /* SMItemView.swift */; };
-		0A51D30F28F333A500AD87A1 /* ExperienceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D30E28F333A500AD87A1 /* ExperienceRowView.swift */; };
+		0A51D30F28F333A500AD87A1 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D30E28F333A500AD87A1 /* SkillView.swift */; };
 		0A51D31128F3FB6C00AD87A1 /* HomeworkItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D31028F3FB6C00AD87A1 /* HomeworkItemView.swift */; };
 		0A51D31328F4003400AD87A1 /* BoxViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D31228F4003400AD87A1 /* BoxViewModifier.swift */; };
 		0A51D31528F40A8400AD87A1 /* LevelBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D31428F40A8400AD87A1 /* LevelBarView.swift */; };
-		0A51D31928F5A43600AD87A1 /* HomeworkItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51D31828F5A43600AD87A1 /* HomeworkItemRowView.swift */; };
+		0A6509C028FD6B9E00A59781 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6509BF28FD6B9E00A59781 /* Mock.swift */; };
+		0A6509C228FD81BF00A59781 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6509C128FD81BF00A59781 /* StudentListView.swift */; };
+		0A6509C428FD82BC00A59781 /* StudentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6509C328FD82BC00A59781 /* StudentRowView.swift */; };
+		0A6509C628FD857600A59781 /* HomeworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6509C528FD857600A59781 /* HomeworkStatus.swift */; };
+		0A6509C828FD86CE00A59781 /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6509C728FD86CE00A59781 /* Homework.swift */; };
+		0A78B6E028FD5EDC00442A5D /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78B6DF28FD5EDC00442A5D /* Array+Extension.swift */; };
+		0A78B6E328FD5F2E00442A5D /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78B6E228FD5F2E00442A5D /* Student.swift */; };
+		0A78B6E528FD5F3E00442A5D /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78B6E428FD5F3E00442A5D /* Platform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A04F08D28FD638A0001A43F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A51D2FA28F3277D00AD87A1 /* CardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A51D2FD28F3277D00AD87A1 /* CardAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAppApp.swift; sourceTree = "<group>"; };
-		0A51D2FF28F3277D00AD87A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0A51D30128F3277E00AD87A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A51D2FF28F3277D00AD87A1 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		0A51D30428F3277E00AD87A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A51D30C28F32BC100AD87A1 /* SMItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMItemView.swift; sourceTree = "<group>"; };
-		0A51D30E28F333A500AD87A1 /* ExperienceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceRowView.swift; sourceTree = "<group>"; };
+		0A51D30E28F333A500AD87A1 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		0A51D31028F3FB6C00AD87A1 /* HomeworkItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkItemView.swift; sourceTree = "<group>"; };
 		0A51D31228F4003400AD87A1 /* BoxViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxViewModifier.swift; sourceTree = "<group>"; };
 		0A51D31428F40A8400AD87A1 /* LevelBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBarView.swift; sourceTree = "<group>"; };
-		0A51D31828F5A43600AD87A1 /* HomeworkItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkItemRowView.swift; sourceTree = "<group>"; };
+		0A6509BF28FD6B9E00A59781 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		0A6509C128FD81BF00A59781 /* StudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
+		0A6509C328FD82BC00A59781 /* StudentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRowView.swift; sourceTree = "<group>"; };
+		0A6509C528FD857600A59781 /* HomeworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkStatus.swift; sourceTree = "<group>"; };
+		0A6509C728FD86CE00A59781 /* Homework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework.swift; sourceTree = "<group>"; };
+		0A78B6DF28FD5EDC00442A5D /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		0A78B6E228FD5F2E00442A5D /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		0A78B6E428FD5F3E00442A5D /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				0A51D2FD28F3277D00AD87A1 /* CardAppApp.swift */,
-				0A51D2FF28F3277D00AD87A1 /* ContentView.swift */,
+				0A78B6E128FD5F2000442A5D /* Models */,
 				0A51D30B28F327A200AD87A1 /* Views */,
-				0A51D30128F3277E00AD87A1 /* Assets.xcassets */,
+				0A78B6DD28FD5E7000442A5D /* Extensions */,
+				0A78B6DE28FD5E9200442A5D /* ViewModifiers */,
+				0A04F08D28FD638A0001A43F /* Assets.xcassets */,
 				0A51D30328F3277E00AD87A1 /* Preview Content */,
-				0A51D31228F4003400AD87A1 /* BoxViewModifier.swift */,
 			);
 			path = CardApp;
 			sourceTree = "<group>";
@@ -77,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				0A51D30428F3277E00AD87A1 /* Preview Assets.xcassets */,
+				0A6509BF28FD6B9E00A59781 /* Mock.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -84,13 +100,42 @@
 		0A51D30B28F327A200AD87A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A51D2FF28F3277D00AD87A1 /* StudentView.swift */,
 				0A51D30C28F32BC100AD87A1 /* SMItemView.swift */,
-				0A51D30E28F333A500AD87A1 /* ExperienceRowView.swift */,
+				0A51D30E28F333A500AD87A1 /* SkillView.swift */,
 				0A51D31028F3FB6C00AD87A1 /* HomeworkItemView.swift */,
 				0A51D31428F40A8400AD87A1 /* LevelBarView.swift */,
-				0A51D31828F5A43600AD87A1 /* HomeworkItemRowView.swift */,
+				0A6509C128FD81BF00A59781 /* StudentListView.swift */,
+				0A6509C328FD82BC00A59781 /* StudentRowView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0A78B6DD28FD5E7000442A5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0A78B6DF28FD5EDC00442A5D /* Array+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0A78B6DE28FD5E9200442A5D /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0A51D31228F4003400AD87A1 /* BoxViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		0A78B6E128FD5F2000442A5D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A78B6E228FD5F2E00442A5D /* Student.swift */,
+				0A78B6E428FD5F3E00442A5D /* Platform.swift */,
+				0A6509C528FD857600A59781 /* HomeworkStatus.swift */,
+				0A6509C728FD86CE00A59781 /* Homework.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A04F08E28FD638A0001A43F /* Assets.xcassets in Resources */,
 				0A51D30528F3277E00AD87A1 /* Preview Assets.xcassets in Resources */,
-				0A51D30228F3277E00AD87A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,14 +208,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A51D30028F3277D00AD87A1 /* ContentView.swift in Sources */,
+				0A51D30028F3277D00AD87A1 /* StudentView.swift in Sources */,
 				0A51D31128F3FB6C00AD87A1 /* HomeworkItemView.swift in Sources */,
-				0A51D30F28F333A500AD87A1 /* ExperienceRowView.swift in Sources */,
+				0A78B6E528FD5F3E00442A5D /* Platform.swift in Sources */,
+				0A51D30F28F333A500AD87A1 /* SkillView.swift in Sources */,
+				0A78B6E328FD5F2E00442A5D /* Student.swift in Sources */,
+				0A6509C828FD86CE00A59781 /* Homework.swift in Sources */,
+				0A78B6E028FD5EDC00442A5D /* Array+Extension.swift in Sources */,
+				0A6509C028FD6B9E00A59781 /* Mock.swift in Sources */,
 				0A51D31528F40A8400AD87A1 /* LevelBarView.swift in Sources */,
-				0A51D31928F5A43600AD87A1 /* HomeworkItemRowView.swift in Sources */,
+				0A6509C628FD857600A59781 /* HomeworkStatus.swift in Sources */,
+				0A6509C428FD82BC00A59781 /* StudentRowView.swift in Sources */,
 				0A51D30D28F32BC100AD87A1 /* SMItemView.swift in Sources */,
 				0A51D2FE28F3277D00AD87A1 /* CardAppApp.swift in Sources */,
 				0A51D31328F4003400AD87A1 /* BoxViewModifier.swift in Sources */,
+				0A6509C228FD81BF00A59781 /* StudentListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "michal_risik_ios.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

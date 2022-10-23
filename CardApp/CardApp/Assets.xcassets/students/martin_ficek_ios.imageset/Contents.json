@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "martin_ficek_ios.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

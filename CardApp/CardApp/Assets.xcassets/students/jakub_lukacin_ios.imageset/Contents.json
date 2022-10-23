@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "jakub_lukacin_ios.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
