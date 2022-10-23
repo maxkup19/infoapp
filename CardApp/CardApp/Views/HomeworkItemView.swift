@@ -9,14 +9,11 @@ import SwiftUI
 
 struct HomeworkItemView: View {
     
-    let number: Int
-    let pushed: Bool
-    let reviewed: Bool
-    let accepted: Bool
+    let homework: Homework
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(number)")
+            Text("\(homework.number)")
                 .font(.system(size: 32, weight: .bold))
                 .padding(20)
                 .foregroundColor(.white)
@@ -24,21 +21,35 @@ struct HomeworkItemView: View {
                 .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                HomeworkItemRowView(text: "PUSHED", predicate: pushed)
-                HomeworkItemRowView(text: "REVIEWED", predicate: reviewed)
-                HomeworkItemRowView(text: "ACCEPTED", predicate: accepted)
+                makeRow(text: "PUSHED",
+                        predicate: homework.status >= .pushed)
+                makeRow(text: "REVIEWED",
+                        predicate: homework.status >= .reviewed)
+                makeRow(text: "ACCEPTED",
+                        predicate: homework.status >= .accepted)
             }
         }
         .padding(16)
         .box()
-        
-        
+    }
+    
+    @ViewBuilder
+    private func makeRow(text: String, predicate: Bool) -> some View {
+        HStack {
+            Text(text)
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(.gray)
+            Spacer()
+            Image(systemName: "\(predicate ? "checkmark.circle.fill" : "clock.fill")")
+                .foregroundColor(predicate ? .green : .gray)
+            
+        }
     }
     
 }
 
 struct HomeworkItemView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeworkItemView(number: 1, pushed: true, reviewed: false, accepted: false)
+        HomeworkItemView(homework: Homework(number: 2, status: .reviewed))
     }
 }

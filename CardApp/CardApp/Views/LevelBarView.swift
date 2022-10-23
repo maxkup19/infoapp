@@ -14,26 +14,13 @@ struct LevelBarView: View {
     var body: some View {
         HStack(spacing: 2) {
             ForEach(1...10, id: \.self) { value in
-                
-                if value < 2 {
-                    Rectangle()
-                        .offset(x: -10)
-                        .clipShape(Capsule())
-                        .offset(x: 10)
-                        .foregroundColor(value <= level ? Color("levelItemColor") : .gray)
-                } else if value > 9 {
-                    Rectangle()
-                        .offset(x: 10)
-                        .clipShape(Capsule())
-                        .offset(x: -10)
-                        .foregroundColor(value <= level ? Color("levelItemColor") : .gray)
-                } else {
-                     Rectangle()
-                        .foregroundColor(value <= level ? Color("levelItemColor") : .gray)
-                }
+                Rectangle()
+                    .foregroundColor(value <= level ? Color("levelItemColor") : .gray)
             }
         }
+        .clipShape(Capsule())
     }
+    
 }
 
 struct LevelBarView_Previews: PreviewProvider {

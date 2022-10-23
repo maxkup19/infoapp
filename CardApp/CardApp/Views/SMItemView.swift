@@ -14,21 +14,23 @@ struct SMItemView: View {
     let destination: String
     
     var body: some View {
-        Link(destination: URL(string: destination)!) {
-            VStack {
-                Image(imageName)
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .padding()
-                    .background(
-                        Color.gray.opacity(0.2)
-                    )
-                    .clipShape(Circle())
-                
-                Text(title)
-                    .font(.system(size: 16, weight: .medium))
+        if let destination = URL(string: destination) {
+            Link(destination: destination) {
+                VStack {
+                    Image(imageName)
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .padding()
+                        .background(
+                            Color.gray.opacity(0.2)
+                        )
+                        .clipShape(Circle())
+                    
+                    Text(title)
+                        .font(.system(size: 16, weight: .medium))
+                }
+                .foregroundColor(Color("textColor"))
             }
-            .foregroundColor(Color("textColor"))
         }
     }
 }
