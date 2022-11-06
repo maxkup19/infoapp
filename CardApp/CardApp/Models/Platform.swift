@@ -7,11 +7,23 @@
 
 import Foundation
 
-enum Platform: String, CaseIterable, Identifiable {
+enum Platform: String, CaseIterable, Identifiable, Codable {
     
     var id: UUID { UUID() }
     
     case all = "All"
-    case iOS = "iOS"
-    case android = "Android"
+    case iOS = "iosStudent"
+    case android = "androidStudent"
+    
+    public var localized: String {
+        switch self {
+        case .all:
+            return "All"
+        case .android:
+            return "Android"
+        case .iOS:
+            return "iOS"
+        }
+    }
+    
 }

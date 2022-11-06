@@ -11,8 +11,7 @@ import SwiftUI
 struct CardAppApp: App {
     var body: some Scene {
         WindowGroup {
-            StudentListView()
-                .navigationTitle("Participants")
+            MainTabView()
         }
     }
 }
