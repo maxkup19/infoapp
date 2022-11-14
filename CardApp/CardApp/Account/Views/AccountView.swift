@@ -7,24 +7,27 @@
 
 import SwiftUI
 
-struct AccountView: View {
+struct AccountView<AccountVM: AccountViewModelProtocol>: View {
     
-    @ObservedObject private var accountViewModel: AccountViewModel = .init()
+    @ObservedObject private var accountViewModel: AccountVM
     
-    @State private var showLoginPage: Bool = false
-    @State private var edit: Bool = false
+    init(accountViewModel: AccountVM) {
+        self.accountViewModel = accountViewModel
+    }
     
     var body: some View {
         if accountViewModel.loggedIn {
-            StudentDetailView(studentId: accountViewModel.studentId, editable: true)
+            StudentDetailView(studentViewModel:
+                                StudentDetailViewModel(studentId: accountViewModel.studentId,
+                                                                       editable: true))
         } else {
             Button {
-                self.showLoginPage = true
+                accountViewModel.showLoginPage = true
             } label: {
                 Text("Login")
             }
-            .sheet(isPresented: $showLoginPage) {
-                LoginView(loggedIn: $accountViewModel.loggedIn)
+            .sheet(isPresented: $accountViewModel.showLoginPage) {
+                LoginView(loginViewModel: LoginViewModel(), loggedIn: $accountViewModel.loggedIn)
             }
         }
         
@@ -33,6 +36,6 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView()
+        AccountView(accountViewModel: AccountViewModel())
     }
 }

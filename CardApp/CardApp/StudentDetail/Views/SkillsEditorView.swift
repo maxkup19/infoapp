@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-struct SkillsEditorView: View {
+struct SkillsEditorView<SkillEditorVM: SkillsEditorViewModelProtocol>: View {
     
-    let student: StudentDetail
-    @ObservedObject private var skillsEditorViewModel: SkillsEditorViewModel
+    @ObservedObject private var skillsEditorViewModel: SkillEditorVM
     @Environment(\.dismiss) private var dismiss
     
-    @State private var showError: Bool = false
-    
-    init(student: StudentDetail) {
-        self.student = student
-        self.skillsEditorViewModel = SkillsEditorViewModel(student: student)
+    init(skillsEditorviewModel: SkillEditorVM) {
+        self.skillsEditorViewModel = skillsEditorviewModel
     }
     
     var body: some View {
@@ -81,15 +77,14 @@ struct SkillsEditorView: View {
             .frame(maxWidth: .infinity)
         }
         .padding()
-        .alert("Downloading error...", isPresented: $showError) {
+        .alert("Downloading error...", isPresented: $skillsEditorViewModel.showError) {
             Button {
                 skillsEditorViewModel.saveSkills()
             } label: {
                 Text("Retry")
             }
         }
-        .onReceive(skillsEditorViewModel.$state) { state in
-            self.showError = state == .error
+        .onChange(of: skillsEditorViewModel.state) { state in
             if state == .success {
                 dismiss()
             }
@@ -102,7 +97,7 @@ struct SkillsEditorView: View {
 struct SkillsEditorView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SkillsEditorView(student: Mock.redactedStudentDetail)
+            SkillsEditorView(skillsEditorviewModel: SkillsEditorViewModel(student: Mock.redactedStudentDetail))
         }
     }
 }

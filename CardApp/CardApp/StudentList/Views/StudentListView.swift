@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct StudentListView: View {
+struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
     
-    @StateObject private var studentListVM = StudentListViewModel()
+    @StateObject private var studentListViewModel: StudentListVM
     
-    @State private var selection: Platform = .all
-    @State private var showError: Bool = false
+    init(studentListViewModel: StudentListVM) {
+        self._studentListViewModel = StateObject(wrappedValue: studentListViewModel)
+    }
     
     var body: some View {
         NavigationStack {
@@ -22,25 +23,22 @@ struct StudentListView: View {
             }
             .navigationTitle("Participants")
         }
-        .alert("Downloading failed...", isPresented: self.$showError) {
+        .alert("Downloading failed...", isPresented: $studentListViewModel.showError) {
             Button {
-                studentListVM.fetchStudentList()
+                studentListViewModel.fetchStudentList()
             } label: {
                 Text("Retry")
             }
         }
         .onAppear {
-            if studentListVM.state != .success && LoginRepository.tokenExists  {
-                studentListVM.fetchStudentList()
+            if studentListViewModel.state != .success && LoginRepository.tokenExists  {
+                studentListViewModel.fetchStudentList()
             }
-        }
-        .onReceive(studentListVM.$state) { state in
-            self.showError = state == .error
         }
     }
     
     private var picker: some View {
-        Picker("Participants", selection: $selection) {
+        Picker("Participants", selection: $studentListViewModel.selection) {
             ForEach(Platform.allCases) { value in
                 Text(value.localized).tag(value)
             }
@@ -50,9 +48,9 @@ struct StudentListView: View {
     
     private var studentList: some View {
         List(
-            studentListVM.students
+            studentListViewModel.students
                 .filter {
-                    switch selection {
+                    switch studentListViewModel.selection {
                     case .all:
                         return true
                     case .android:
@@ -63,13 +61,13 @@ struct StudentListView: View {
                 }
         ) { student in
             NavigationLink {
-                StudentDetailView(studentId: student.id)
+                StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: student.id))
                     .navigationTitle(student.name)
             } label: {
                 StudentRowView(student: student)
-                    .redacted(reason: studentListVM.state != .success ? .placeholder : [])
+                    .redacted(reason: studentListViewModel.state != .success ? .placeholder : [])
             }
-            .disabled(studentListVM.state != .success)
+            .disabled(studentListViewModel.state != .success)
             
         }
         .listStyle(.plain)
@@ -79,6 +77,6 @@ struct StudentListView: View {
 
 struct StudentListView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentListView()
+        StudentListView(studentListViewModel: StudentListViewModel())
     }
 }

@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-class MainTabViewModel: ObservableObject {
+protocol MainTabViewModelProtocol: ObservableObject {
+    var openTab: Int { get set }
+}
+
+class MainTabViewModel: MainTabViewModelProtocol {
     @Published var openTab: Int
     
     private let userDefaultsRepo: UserDefaultsRepository = .init()

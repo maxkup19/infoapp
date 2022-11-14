@@ -7,10 +7,23 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-class LoginViewModel: ObservableObject {
+protocol LoginViewModelProtocol: ObservableObject {
+    var userId: String { get set }
+    var password: String { get set }
+    var state: FetchState { get set }
+    
+    var showError: Bool { get set }
+    
+    func login()
+}
+
+final class LoginViewModel: LoginViewModelProtocol {
+    
     @Published var userId: String = ""
     @Published var password: String = ""
+    @Published var showError: Bool = false
     @Published var state: FetchState = .loading
     
     private let loginRepository: LoginRepository = .init()

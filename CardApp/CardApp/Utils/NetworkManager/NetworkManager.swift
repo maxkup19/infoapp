@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NetworkManager {
+final class NetworkManager {
     
     static func performRequest<ResponseObject: Codable> (for urlString: String, with payload: NetwokManagerPayload, responseType: ResponseObject.Type) -> AnyPublisher<ResponseObject, NetworkManagerError> {
         

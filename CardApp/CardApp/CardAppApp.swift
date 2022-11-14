@@ -11,7 +11,7 @@ import SwiftUI
 struct CardAppApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainTabView(mainTabViewModel: MainTabViewModel())
             // MARK: ONLY FOR TESTING
             // to start from login
             // run app, cmd+ctrl+z(shake gesture) then restart app

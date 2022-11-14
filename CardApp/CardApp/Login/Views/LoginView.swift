@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct LoginView<LoginVM: LoginViewModelProtocol> : View {
     
     @Binding var loggedIn: Bool
-    @ObservedObject private var loginViewModel = LoginViewModel()
+    @ObservedObject private var loginViewModel: LoginVM
     @Environment(\.dismiss) private var dismiss
-    @State private var showError: Bool = false
+    
+    init(loginViewModel: LoginVM, loggedIn: Binding<Bool>) {
+        self._loggedIn = loggedIn
+        self.loginViewModel = loginViewModel
+    }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -20,15 +24,15 @@ struct LoginView: View {
             
             closeButton
         }
-        .alert("Login failed...", isPresented: self.$showError) {
+        .alert("Login failed...", isPresented: $loginViewModel.showError) {
             Button("Retry", role: .cancel) { }
         }
-        .onReceive(loginViewModel.$state) { state in
-            if state == .error {
-                self.showError = true
-            } else if state == .success {
+        .onChange(of: loginViewModel.state) { state in
+            if state == .success {
                 self.loggedIn = true
                 dismiss()
+            } else {
+                loginViewModel.showError = true
             }
         }
     }
@@ -71,6 +75,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loggedIn: .constant(true))
+        LoginView(loginViewModel: LoginViewModel(), loggedIn: .constant(true))
     }
 }

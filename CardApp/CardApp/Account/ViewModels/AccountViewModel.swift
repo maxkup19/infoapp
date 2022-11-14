@@ -8,9 +8,16 @@
 import Foundation
 import Combine
 
-class AccountViewModel: ObservableObject {
-    @Published var loggedIn: Bool
+protocol AccountViewModelProtocol: ObservableObject {
+    var loggedIn: Bool { get set }
+    var studentId: String { get }
     
+    var showLoginPage: Bool { get set }
+}
+
+class AccountViewModel: AccountViewModelProtocol {
+    @Published var loggedIn: Bool = false 
+    @Published var showLoginPage: Bool = false
     private let keyChainRepo = KeyChainRepository()
     var studentId: String { self.keyChainRepo.readUserId() ?? "" }
     

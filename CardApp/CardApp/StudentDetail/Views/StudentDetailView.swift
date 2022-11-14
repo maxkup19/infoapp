@@ -7,18 +7,12 @@
 
 import SwiftUI
 
-struct StudentDetailView: View {
+struct StudentDetailView<StudentDetailVM: StudentDetailViewModelProtocol>: View {
     
-    let studentId: String
-    let editable: Bool
-    @StateObject private var studentViewModel: StudentDetailViewModel = .init()
+    @StateObject private var studentViewModel: StudentDetailVM
     
-    @State private var showError: Bool = false
-    @State private var showEditor: Bool = false
-    
-    init(studentId: String, editable: Bool = false) {
-        self.studentId = studentId
-        self.editable = editable
+    init(studentViewModel: StudentDetailVM) {
+        self._studentViewModel = StateObject(wrappedValue: studentViewModel)
     }
     
     var body: some View {
@@ -39,25 +33,23 @@ struct StudentDetailView: View {
                 .redacted(reason: studentViewModel.state != .success ? .placeholder : [])
                 .padding(16)
             }
-            .sheet(isPresented: $showEditor) {
-                SkillsEditorView(student: studentViewModel.student)
+            .sheet(isPresented: $studentViewModel.showEditor) {
+                SkillsEditorView(skillsEditorviewModel:
+                                    SkillsEditorViewModel(student: studentViewModel.student))
                     .presentationDetents([.medium])
             }
-            .alert("Downloading error...", isPresented: $showError) {
+            .alert("Downloading error...", isPresented: $studentViewModel.showError) {
                 Button {
-                    studentViewModel.fetchStudent(with: self.studentId)
+                    studentViewModel.fetchStudent()
                 } label: {
                     Text("Retry")
                 }
             }
             .onAppear {
-                studentViewModel.fetchStudent(with: self.studentId)
+                studentViewModel.fetchStudent()
             }
-            .onReceive(studentViewModel.$state) { state in
-                self.showError = state == .error
-            }
-            .onChange(of: showEditor) { _ in
-                studentViewModel.fetchStudent(with: self.studentId)
+            .onChange(of: studentViewModel.showEditor) { _ in
+                studentViewModel.fetchStudent()
             }
         }
     }
@@ -117,9 +109,9 @@ struct StudentDetailView: View {
             .frame(maxWidth: .infinity)
             .box()
             .contextMenu {
-                if self.editable {
+                if studentViewModel.editable {
                     Button("Edit") {
-                        self.showEditor = true
+                        studentViewModel.showEditor = true
                     }
                 }
             }
@@ -149,6 +141,6 @@ struct StudentDetailView: View {
 
 struct StudentDEatilView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentDetailView(studentId: "maxkup19")
+        StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: "maxkup19"))
     }
 }

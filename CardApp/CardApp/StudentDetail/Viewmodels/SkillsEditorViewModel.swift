@@ -8,9 +8,19 @@
 import Foundation
 import Combine
 
-class SkillsEditorViewModel: ObservableObject {
+protocol SkillsEditorViewModelProtocol: ObservableObject {
+    var skills: [StudentDetail.Skill] { get set }
+    var state: FetchState { get }
+    var showError: Bool { get set }
+    
+    func saveSkills()
+}
+
+
+final class SkillsEditorViewModel: SkillsEditorViewModelProtocol {
     @Published var skills: [StudentDetail.Skill]
     @Published var state: FetchState = .loading
+    @Published var showError: Bool = false
     
     var student: StudentDetail
     private let studentRepo: StudentRepository = .init()
@@ -31,6 +41,7 @@ class SkillsEditorViewModel: ObservableObject {
                     switch completion {
                     case .failure(_):
                         self?.state = .error
+                        self?.showError = true
                     case .finished:
                         self?.state = .success
                     }
