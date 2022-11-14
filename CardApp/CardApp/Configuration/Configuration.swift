@@ -10,6 +10,7 @@ import Foundation
 // MARK: Struct to configure server requests
 
 struct Configuration {
-    static let badServer: Bool = true
-    static let sleepy: Bool = true
+    static let badServer: Bool = false
+    static let sleepy: Bool = false
+    static let timeToLive: Int = 30
 }

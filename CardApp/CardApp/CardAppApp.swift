@@ -12,6 +12,13 @@ struct CardAppApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+            // MARK: ONLY FOR TESTING
+            // to start from login
+            // run app, cmd+ctrl+z(shake gesture) then restart app
+                .onReceive(NotificationCenter.default.publisher(for: .deviceDidShakeNotification)) { _ in
+                    UserDefaultsRepository().clear()
+                    KeyChainRepository().clear()
+                }
         }
     }
 }
