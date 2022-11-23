@@ -26,8 +26,12 @@ class StudentListViewModel: StudentListViewModelProtocol {
     @Published var selection: Platform = .all
     @Published var showError: Bool = false
  
-    private let studentRepo: StudentRepositoryProtocol = StudentRepository()
+    private let studentRepo: StudentRepositoryProtocol
     private var bag = Set<AnyCancellable>()
+    
+    init(studentRepo: StudentRepositoryProtocol) {
+        self.studentRepo = studentRepo
+    }
     
     func fetchStudentList() {
         self.state = .loading

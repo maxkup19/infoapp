@@ -41,7 +41,7 @@ final class LoginRepository: LoginRepositoryProtocol {
                 responseType: LoginResponse.self)
         
         return request
-    }  
+    }
     
     func updateToken() -> AnyPublisher<LoginResponse, NetworkManagerError> {
         

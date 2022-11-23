@@ -23,12 +23,13 @@ final class SkillsEditorViewModel: SkillsEditorViewModelProtocol {
     @Published var showError: Bool = false
     
     var student: StudentDetail
-    private let studentRepo: StudentRepository = .init()
+    private let studentRepo: StudentRepositoryProtocol
     private var bag = Set<AnyCancellable>()
     
-    init(student: StudentDetail) {
+    init(student: StudentDetail, studentRepo: StudentRepositoryProtocol) {
         self.student = student
         self.skills = student.skills ?? []
+        self.studentRepo = studentRepo
     }
     
     func saveSkills() {

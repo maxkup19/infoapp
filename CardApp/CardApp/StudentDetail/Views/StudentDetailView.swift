@@ -35,7 +35,7 @@ struct StudentDetailView<StudentDetailVM: StudentDetailViewModelProtocol>: View 
             }
             .sheet(isPresented: $studentViewModel.showEditor) {
                 SkillsEditorView(skillsEditorviewModel:
-                                    SkillsEditorViewModel(student: studentViewModel.student))
+                                    SkillsEditorViewModel(student: studentViewModel.student, studentRepo: CometStudentRepository()))
                     .presentationDetents([.medium])
             }
             .alert("Downloading error...", isPresented: $studentViewModel.showError) {
@@ -144,6 +144,7 @@ struct StudentDetailView<StudentDetailVM: StudentDetailViewModelProtocol>: View 
 
 struct StudentDEatilView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: "maxkup19"))
+        StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: "maxkup19",
+                                                                   studentRepo: CometStudentRepository()))
     }
 }

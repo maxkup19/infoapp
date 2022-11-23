@@ -61,7 +61,7 @@ struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
                 }
         ) { student in
             NavigationLink {
-                StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: student.id))
+                StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: student.id, studentRepo: CometStudentRepository()))
                     .navigationTitle(student.name)
             } label: {
                 StudentRowView(student: student)
@@ -77,6 +77,6 @@ struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
 
 struct StudentListView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentListView(studentListViewModel: StudentListViewModel())
+        StudentListView(studentListViewModel: StudentListViewModel(studentRepo: CometStudentRepository()))
     }
 }

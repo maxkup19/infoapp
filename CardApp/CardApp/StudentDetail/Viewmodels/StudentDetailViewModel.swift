@@ -27,12 +27,13 @@ class StudentDetailViewModel: StudentDetailViewModelProtocol {
     
     private var studentId: String
     
-    private let studentRepo: StudentRepositoryProtocol = StudentRepository()
+    private let studentRepo: StudentRepositoryProtocol
     private var bag = Set<AnyCancellable>()
     
-    init(studentId: String, editable: Bool = false) {
+    init(studentId: String, studentRepo: StudentRepositoryProtocol, editable: Bool = false) {
         self.editable = editable
         self.studentId = studentId
+        self.studentRepo = studentRepo
     }
     
     func fetchStudent() {

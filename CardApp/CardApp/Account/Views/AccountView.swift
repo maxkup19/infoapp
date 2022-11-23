@@ -19,7 +19,8 @@ struct AccountView<AccountVM: AccountViewModelProtocol>: View {
         if accountViewModel.loggedIn {
             StudentDetailView(studentViewModel:
                                 StudentDetailViewModel(studentId: accountViewModel.studentId,
-                                                                       editable: true))
+                                                       studentRepo: CometStudentRepository(),
+                                                       editable: true))
         } else {
             Button {
                 accountViewModel.login()
