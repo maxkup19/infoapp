@@ -12,7 +12,6 @@ import LocalAuthentication
 protocol AccountViewModelProtocol: ObservableObject {
     var loggedIn: Bool { get set }
     var studentId: String { get }
-    
     var showLoginPage: Bool { get set }
     
     func login()

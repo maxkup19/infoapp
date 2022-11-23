@@ -246,26 +246,9 @@
 		0A025F702918F66400CB796B /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				0A025F722918F67800CB796B /* ViewModels */,
-				0A025F712918F66E00CB796B /* Views */,
+				0AEC1437292EBFD2006E24F0 /* Presentation */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		0A025F712918F66E00CB796B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0A8C4E9E2909D8BE002A471B /* AccountView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		0A025F722918F67800CB796B /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				0A025F862919B48300CB796B /* AccountViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		0A025F812919A1F200CB796B /* MainTab */ = {
@@ -437,6 +420,15 @@
 				0AEC1433292EBD02006E24F0 /* LoginResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0AEC1437292EBFD2006E24F0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0A8C4E9E2909D8BE002A471B /* AccountView.swift */,
+				0A025F862919B48300CB796B /* AccountViewModel.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
