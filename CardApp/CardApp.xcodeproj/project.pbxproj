@@ -54,7 +54,7 @@
 		0AEC143C292EC084006E24F0 /* StudentDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC143B292EC084006E24F0 /* StudentDetailRepository.swift */; };
 		0AEC143E292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC143D292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift */; };
 		0AEC1440292EC1A1006E24F0 /* MockStudentDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC143F292EC1A1006E24F0 /* MockStudentDetailRepository.swift */; };
-		0AEC1443292EC27A006E24F0 /* StudentDetailFetchWithIdUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUsecase.swift */; };
+		0AEC1443292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift */; };
 		0AEC1445292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1444292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift */; };
 		0AEC144A292EC57B006E24F0 /* StudentListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1449292EC57B006E24F0 /* StudentListRepository.swift */; };
 		0AEC144C292EC58B006E24F0 /* StudentListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC144B292EC58B006E24F0 /* StudentListRepositoryProtocol.swift */; };
@@ -112,7 +112,7 @@
 		0AEC143B292EC084006E24F0 /* StudentDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailRepository.swift; sourceTree = "<group>"; };
 		0AEC143D292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailRepositoryProtocol.swift; sourceTree = "<group>"; };
 		0AEC143F292EC1A1006E24F0 /* MockStudentDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStudentDetailRepository.swift; sourceTree = "<group>"; };
-		0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailFetchWithIdUsecase.swift; sourceTree = "<group>"; };
+		0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailFetchWithIdUseCase.swift; sourceTree = "<group>"; };
 		0AEC1444292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUpdateSkillsUseCase.swift; sourceTree = "<group>"; };
 		0AEC1449292EC57B006E24F0 /* StudentListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListRepository.swift; sourceTree = "<group>"; };
 		0AEC144B292EC58B006E24F0 /* StudentListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 			children = (
 				0AEC1441292EC238006E24F0 /* Model */,
 				0AEC143D292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift */,
-				0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUsecase.swift */,
+				0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift */,
 				0AEC1444292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift */,
 			);
 			path = Domain;
@@ -550,7 +550,7 @@
 				0A78B6E528FD5F3E00442A5D /* Platform.swift in Sources */,
 				0A025F7F29193E3100CB796B /* KeyChainRepository.swift in Sources */,
 				0A025F7D29193A7400CB796B /* UserDefaultsRepository.swift in Sources */,
-				0AEC1443292EC27A006E24F0 /* StudentDetailFetchWithIdUsecase.swift in Sources */,
+				0AEC1443292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift in Sources */,
 				0AEC144A292EC57B006E24F0 /* StudentListRepository.swift in Sources */,
 				0A025F89291AB9BD00CB796B /* SkillsEditorView.swift in Sources */,
 				0A8C4E9F2909D8BE002A471B /* AccountView.swift in Sources */,
