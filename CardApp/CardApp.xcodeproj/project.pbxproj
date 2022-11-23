@@ -61,7 +61,22 @@
 		0AEC144F292EC6D9006E24F0 /* StudentListFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC144E292EC6D9006E24F0 /* StudentListFetchUseCase.swift */; };
 		0AEC1451292EC817006E24F0 /* MockStudentListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1450292EC817006E24F0 /* MockStudentListRepository.swift */; };
 		0AEC1454292EC939006E24F0 /* StudentListFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1453292EC939006E24F0 /* StudentListFilterUseCase.swift */; };
+		0AEC1455292ECFEB006E24F0 /* Comet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0ABC62D4292E5C33007587A4 /* Comet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0AEC1456292ECFEB006E24F0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AEC1455292ECFEB006E24F0 /* Comet in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A025F5C291862A400CB796B /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
@@ -476,6 +491,7 @@
 				0A51D2F628F3277D00AD87A1 /* Sources */,
 				0A51D2F728F3277D00AD87A1 /* Frameworks */,
 				0A51D2F828F3277D00AD87A1 /* Resources */,
+				0AEC1456292ECFEB006E24F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

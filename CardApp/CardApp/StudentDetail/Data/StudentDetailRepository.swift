@@ -11,7 +11,9 @@ import Comet
 
 final class StudentDetailRepository: StudentDetailRepositoryProtocol {
     private let cometClient: CometClient = CometClient(tokenProvider: TokenProvider(),
-                                                       authenticatedRequestBuilder: AuthenticatedRequestBuilder())
+                                                       authenticatedRequestBuilder: AuthenticatedRequestBuilder(),
+                                                       logConfiguration: LogConfiguration(logLevel: .full,
+                                                                                          logger: { Swift.print($0) }))
     
     func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError> {
         let request = RequestBuilder

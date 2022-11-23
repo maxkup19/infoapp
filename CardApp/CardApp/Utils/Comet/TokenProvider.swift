@@ -30,9 +30,15 @@ struct TokenProvider: TokenProviding {
     
     var refreshAccessToken: AnyPublisher<String, TokenProvidingError> {
         loginRepo.updateToken()
-            .map(\.accessToken)
-            .eraseToAnyPublisher()
-            .mapError { _ in TokenProvidingError.loginRequired}
+            .mapError { _ in TokenProvidingError.internalError}
+            .flatMap { response -> AnyPublisher<String, TokenProvidingError> in
+                userDefaultsRepository.save(expiration: response.expiration)
+                userDefaultsRepository.save(accessToken: response.accessToken)
+                
+                return Just(response.accessToken)
+                    .setFailureType(to: TokenProvidingError.self)
+                    .eraseToAnyPublisher()
+            }
             .eraseToAnyPublisher()
     }
 }
