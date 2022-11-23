@@ -8,12 +8,6 @@
 import Foundation
 import Combine
 
-protocol LoginRepositoryProtocol {
-    static var tokenExists: Bool { get }
-    func login(payload: LoginPayload) -> AnyPublisher<LoginResponse, NetworkManagerError>
-    func updateToken() -> AnyPublisher<LoginResponse, NetworkManagerError>
-}
-
 final class LoginRepository: LoginRepositoryProtocol {
     
     static var loggedIn: Bool = false
@@ -27,7 +21,7 @@ final class LoginRepository: LoginRepositoryProtocol {
         return true
     }
     
-    func login(payload: LoginPayload) -> AnyPublisher<LoginResponse, NetworkManagerError> {
+    func login(payload: Login) -> AnyPublisher<LoginResponse, NetworkManagerError> {
         
         let payload: NetwokManagerPayload = .init(method: "POST",
                                                   httpBody: try? JSONEncoder().encode(payload),
@@ -53,6 +47,6 @@ final class LoginRepository: LoginRepositoryProtocol {
                 .eraseToAnyPublisher()
         }
         
-        return self.login(payload: LoginPayload(userId: userId, password: password))
+        return self.login(payload: Login(userId: userId, password: password))
     }
 }

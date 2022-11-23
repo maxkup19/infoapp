@@ -26,16 +26,20 @@ final class LoginViewModel: LoginViewModelProtocol {
     @Published var showError: Bool = false
     @Published var state: FetchState = .loading
     
-    private let loginRepository: LoginRepository = .init()
+    private let loginUseCase: LoginUseCaseProtocol
     private let userDefaultsRepository: UserDefaultsRepository = .init()
     private let keyChainRepository: KeyChainRepository  = .init()
     private var bag = Set<AnyCancellable>()
     
+    init(loginUseCase: LoginUseCaseProtocol) {
+        self.loginUseCase = loginUseCase
+    }
+    
     func login() {
         
-        let payload = LoginPayload(userId: self.userId, password: self.password)
+        let payload = Login(userId: self.userId, password: self.password)
         
-        loginRepository.login(payload: payload)
+        loginUseCase.login(payload: payload)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
