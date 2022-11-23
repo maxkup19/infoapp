@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AccountView<AccountVM: AccountViewModelProtocol>: View {
     
-    @ObservedObject private var accountViewModel: AccountVM
+    @StateObject private var accountViewModel: AccountVM
     
     init(accountViewModel: AccountVM) {
-        self.accountViewModel = accountViewModel
+        self._accountViewModel = StateObject(wrappedValue: accountViewModel)
     }
     
     var body: some View {
@@ -22,7 +22,7 @@ struct AccountView<AccountVM: AccountViewModelProtocol>: View {
                                                                        editable: true))
         } else {
             Button {
-                accountViewModel.showLoginPage = true
+                accountViewModel.login()
             } label: {
                 Text("Login")
             }
@@ -30,7 +30,6 @@ struct AccountView<AccountVM: AccountViewModelProtocol>: View {
                 LoginView(loginViewModel: LoginViewModel(), loggedIn: $accountViewModel.loggedIn)
             }
         }
-        
     }
 }
 

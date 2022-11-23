@@ -51,6 +51,9 @@ struct StudentDetailView<StudentDetailVM: StudentDetailViewModelProtocol>: View 
             .onChange(of: studentViewModel.showEditor) { _ in
                 studentViewModel.fetchStudent()
             }
+            .refreshable {
+                studentViewModel.fetchStudent()
+            }
         }
     }
     

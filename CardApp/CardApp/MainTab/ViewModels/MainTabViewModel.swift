@@ -13,13 +13,8 @@ protocol MainTabViewModelProtocol: ObservableObject {
 }
 
 class MainTabViewModel: MainTabViewModelProtocol {
-    @Published var openTab: Int
+    @Published var openTab: Int = 2
     
     private let userDefaultsRepo: UserDefaultsRepository = .init()
     private var bag = Set<AnyCancellable>()
-    
-    init() {
-        self.openTab = LoginRepository.tokenExists ? 1 : 2
-    }
-    
 }

@@ -16,6 +16,8 @@ protocol LoginRepositoryProtocol {
 
 final class LoginRepository: LoginRepositoryProtocol {
     
+    static var loggedIn: Bool = false
+    
     static var tokenExists: Bool {
         let userDefaultsRepository: UserDefaultsRepository = .init()
         

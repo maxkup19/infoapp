@@ -31,7 +31,7 @@ struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
             }
         }
         .onAppear {
-            if studentListViewModel.state != .success && LoginRepository.tokenExists  {
+            if studentListViewModel.state != .success && LoginRepository.loggedIn  {
                 studentListViewModel.fetchStudentList()
             }
         }

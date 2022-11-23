@@ -52,6 +52,7 @@ final class LoginViewModel: LoginViewModelProtocol {
                     self.userDefaultsRepository.save(expiration: response.expiration)
                     self.keyChainRepository.store(password: self.password)
                     self.keyChainRepository.store(userId: self.userId)
+                    LoginRepository.loggedIn = true
                 })
             .store(in: &bag)
     }
