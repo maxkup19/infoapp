@@ -14,7 +14,4 @@ protocol MainTabViewModelProtocol: ObservableObject {
 
 class MainTabViewModel: MainTabViewModelProtocol {
     @Published var openTab: Int = 2
-    
-    private let userDefaultsRepo: UserDefaultsRepository = .init()
-    private var bag = Set<AnyCancellable>()
 }

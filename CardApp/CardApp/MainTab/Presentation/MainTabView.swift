@@ -17,7 +17,8 @@ struct MainTabView<MainTabVM: MainTabViewModelProtocol>: View {
     
     var body: some View {
         TabView(selection: $mainTabViewModel.openTab){
-            StudentListView(studentListViewModel: StudentListViewModel(studentRepo: CometStudentRepository()))
+            StudentListView(studentListViewModel: StudentListViewModel(studentlistFetchUseCase: StudentListFetchUseCase(studentRepo: StudentListRepository()),
+                                                                      studentListFilterUseCase: StudentListFilterUseCase()))
                 .tabItem {
                     Label("Participants", systemImage: "person.3.fill")
                 }

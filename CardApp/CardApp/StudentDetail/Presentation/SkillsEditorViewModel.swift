@@ -23,19 +23,19 @@ final class SkillsEditorViewModel: SkillsEditorViewModelProtocol {
     @Published var showError: Bool = false
     
     var student: StudentDetail
-    private let studentRepo: StudentRepositoryProtocol
+    private let studentUpdateSkillsUseCase: StudentUpdateSkillsUseCaseProtocol
     private var bag = Set<AnyCancellable>()
     
-    init(student: StudentDetail, studentRepo: StudentRepositoryProtocol) {
+    init(student: StudentDetail, studentUpdateSkillsUseCase: StudentUpdateSkillsUseCaseProtocol) {
         self.student = student
         self.skills = student.skills ?? []
-        self.studentRepo = studentRepo
+        self.studentUpdateSkillsUseCase = studentUpdateSkillsUseCase
     }
     
     func saveSkills() {
         student.skills = self.skills
     
-        studentRepo.updateSkills(for: student)
+        studentUpdateSkillsUseCase.updateSkills(for: student)
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in

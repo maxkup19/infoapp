@@ -17,10 +17,9 @@ struct AccountView<AccountVM: AccountViewModelProtocol>: View {
     
     var body: some View {
         if accountViewModel.loggedIn {
-            StudentDetailView(studentViewModel:
-                                StudentDetailViewModel(studentId: accountViewModel.studentId,
-                                                       studentRepo: CometStudentRepository(),
-                                                       editable: true))
+            StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: accountViewModel.studentId,
+                                                                       studentDetailFetchUseCase: StudentDetailFetchWithIdUseCase(studentRepo: StudentDetailRepository()),
+                                                                       editable: true))
         } else {
             Button {
                 accountViewModel.login()
@@ -28,7 +27,8 @@ struct AccountView<AccountVM: AccountViewModelProtocol>: View {
                 Text("Login")
             }
             .sheet(isPresented: $accountViewModel.showLoginPage) {
-                LoginView(loginViewModel: LoginViewModel(), loggedIn: $accountViewModel.loggedIn)
+                LoginView(loginViewModel: LoginViewModel(loginUseCase: LoginUseCase(loginRepo: LoginRepository())),
+                          loggedIn: $accountViewModel.loggedIn)
             }
         }
     }

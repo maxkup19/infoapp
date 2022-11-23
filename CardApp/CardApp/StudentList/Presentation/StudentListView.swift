@@ -47,21 +47,10 @@ struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
     }
     
     private var studentList: some View {
-        List(
-            studentListViewModel.students
-                .filter {
-                    switch studentListViewModel.selection {
-                    case .all:
-                        return true
-                    case .android:
-                        return  $0.platform == .android
-                    case .iOS:
-                        return  $0.platform == .iOS
-                    }
-                }
-        ) { student in
+        List(studentListViewModel.displayedStudents) { student in
             NavigationLink {
-                StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: student.id, studentRepo: CometStudentRepository()))
+                StudentDetailView(studentViewModel: StudentDetailViewModel(studentId: student.id,
+                                                                           studentDetailFetchUseCase: StudentDetailFetchWithIdUseCase(studentRepo: StudentDetailRepository())))
                     .navigationTitle(student.name)
             } label: {
                 StudentRowView(student: student)
@@ -71,12 +60,16 @@ struct StudentListView<StudentListVM: StudentListViewModelProtocol>: View {
             
         }
         .listStyle(.plain)
+        .refreshable {
+            studentListViewModel.fetchStudentList()
+        }
     }
     
 }
 
 struct StudentListView_Previews: PreviewProvider {
     static var previews: some View {
-        StudentListView(studentListViewModel: StudentListViewModel(studentRepo: CometStudentRepository()))
+        StudentListView(studentListViewModel: StudentListViewModel(studentlistFetchUseCase: StudentListFetchUseCase(studentRepo: MockStudentListRepository()),
+                                                                   studentListFilterUseCase: StudentListFilterUseCase()))
     }
 }

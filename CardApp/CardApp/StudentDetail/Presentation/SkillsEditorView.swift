@@ -97,7 +97,8 @@ struct SkillsEditorView<SkillEditorVM: SkillsEditorViewModelProtocol>: View {
 struct SkillsEditorView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SkillsEditorView(skillsEditorviewModel: SkillsEditorViewModel(student: Mock.redactedStudentDetail, studentRepo: CometStudentRepository()))
+            SkillsEditorView(skillsEditorviewModel: SkillsEditorViewModel(student: Mock.redactedStudentDetail,
+                                                                          studentUpdateSkillsUseCase: StudentUpdateSkillsUseCase(studentRepo: MockStudentDetailRepository())))
         }
     }
 }

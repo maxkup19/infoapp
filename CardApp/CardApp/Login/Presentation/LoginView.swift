@@ -75,6 +75,7 @@ struct LoginView<LoginVM: LoginViewModelProtocol> : View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginViewModel: LoginViewModel(), loggedIn: .constant(true))
+        LoginView(loginViewModel: LoginViewModel(loginUseCase: LoginUseCase(loginRepo: LoginRepository())),
+                  loggedIn: .constant(true))
     }
 }

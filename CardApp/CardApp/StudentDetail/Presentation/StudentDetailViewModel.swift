@@ -27,19 +27,19 @@ class StudentDetailViewModel: StudentDetailViewModelProtocol {
     
     private var studentId: String
     
-    private let studentRepo: StudentRepositoryProtocol
+    private let studentDetailFetchUseCase: StudentDetailFetchWithIdUseCaseProtocol
     private var bag = Set<AnyCancellable>()
     
-    init(studentId: String, studentRepo: StudentRepositoryProtocol, editable: Bool = false) {
+    init(studentId: String, studentDetailFetchUseCase: StudentDetailFetchWithIdUseCaseProtocol, editable: Bool = false) {
         self.editable = editable
         self.studentId = studentId
-        self.studentRepo = studentRepo
+        self.studentDetailFetchUseCase = studentDetailFetchUseCase
     }
     
     func fetchStudent() {
         self.state = .loading
         
-        studentRepo.fetchStudent(with: self.studentId)
+        studentDetailFetchUseCase.fetchStudent(with: self.studentId)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
