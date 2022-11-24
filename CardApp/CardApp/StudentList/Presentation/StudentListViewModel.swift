@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineExtensions
 
 
 protocol StudentListViewModelProtocol: ObservableObject {
@@ -44,17 +45,20 @@ class StudentListViewModel: StudentListViewModelProtocol {
         
         studentlistFetchUseCase.fetchStudentList()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                switch completion {
-                case .finished:
-                    self?.state = .success
-                case .failure(_):
-                    self?.state = .error
-                    self?.showError = true
-                }
-            }, receiveValue: { [weak self] students in
-                self?.students = students
-            })
+            .sink(
+                weak: self,
+                receiveCompletion: { unwrappedSelf, completion in
+                    switch completion {
+                    case .finished:
+                        unwrappedSelf.state = .success
+                    case .failure(_):
+                        unwrappedSelf.state = .error
+                        unwrappedSelf.showError = true
+                    }
+                },
+                receiveValue: { unwrappedSelf, students in
+                    unwrappedSelf.students = students
+                })
             .store(in: &bag)
     }
 }

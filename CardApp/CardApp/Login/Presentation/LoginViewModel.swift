@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import SwiftUI
+import CombineExtensions
 
 protocol LoginViewModelProtocol: ObservableObject {
     var userId: String { get set }
@@ -42,20 +42,20 @@ final class LoginViewModel: LoginViewModelProtocol {
         loginUseCase.login(payload: payload)
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { [weak self] completion in
+                weak: self,
+                receiveCompletion: { unwrappedSelf, completion in
                     switch completion {
                     case .finished:
-                        self?.state = .success
+                        unwrappedSelf.state = .success
                     case .failure(_):
-                        self?.state = .error
+                        unwrappedSelf.state = .error
                     }
                 },
-                receiveValue: { [weak self] response in
-                    guard let self = self else { return }
-                    self.userDefaultsRepository.save(accessToken: response.accessToken)
-                    self.userDefaultsRepository.save(expiration: response.expiration)
-                    self.keyChainRepository.store(password: self.password)
-                    self.keyChainRepository.store(userId: self.userId)
+                receiveValue: { unwrappedSelf, response in
+                    unwrappedSelf.userDefaultsRepository.save(accessToken: response.accessToken)
+                    unwrappedSelf.userDefaultsRepository.save(expiration: response.expiration)
+                    unwrappedSelf.keyChainRepository.store(password: unwrappedSelf.password)
+                    unwrappedSelf.keyChainRepository.store(userId: unwrappedSelf.userId)
                     LoginRepository.loggedIn = true
                 })
             .store(in: &bag)

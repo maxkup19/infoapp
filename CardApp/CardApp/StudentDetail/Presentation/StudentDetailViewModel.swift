@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import CombineExtensions
 
 protocol StudentDetailViewModelProtocol: ObservableObject {
     var student: StudentDetail { get }
@@ -41,17 +42,20 @@ class StudentDetailViewModel: StudentDetailViewModelProtocol {
         
         studentDetailFetchUseCase.fetchStudent(with: self.studentId)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                switch completion {
-                case .finished:
-                    self?.state = .success
-                case .failure(_):
-                    self?.state = .error
-                    self?.showError = true
-                }
-            }, receiveValue: { [weak self] student in
-                self?.student = student
-            })
+            .sink(
+                weak: self,
+                receiveCompletion: { unwrappedSelf, completion in
+                    switch completion {
+                    case .finished:
+                        unwrappedSelf.state = .success
+                    case .failure(_):
+                        unwrappedSelf.state = .error
+                        unwrappedSelf.showError = true
+                    }
+                },
+                receiveValue: { unwrappedSelf, student in
+                    unwrappedSelf.student = student
+                })
             .store(in: &bag)
     }
 }

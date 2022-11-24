@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineExtensions
 
 protocol SkillsEditorViewModelProtocol: ObservableObject {
     var skills: [StudentDetail.Skill] { get set }
@@ -34,22 +35,23 @@ final class SkillsEditorViewModel: SkillsEditorViewModelProtocol {
     
     func saveSkills() {
         student.skills = self.skills
-    
+        
         studentUpdateSkillsUseCase.updateSkills(for: student)
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { [weak self] completion in
+                weak: self,
+                receiveCompletion: { unwrappedSelf, completion in
                     switch completion {
                     case .failure(_):
-                        self?.state = .error
-                        self?.showError = true
+                        unwrappedSelf.state = .error
+                        unwrappedSelf.showError = true
                     case .finished:
-                        self?.state = .success
+                        unwrappedSelf.state = .success
                     }
                 },
-                receiveValue: { [weak self] skills in
-                    self?.student.skills = skills
-            })
+                receiveValue: { unwrappedSelf, skills in
+                    unwrappedSelf.student.skills = skills
+                })
             .store(in: &bag)
     }
 }

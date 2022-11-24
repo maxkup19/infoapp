@@ -30,15 +30,17 @@ class AccountViewModel: AccountViewModelProtocol {
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "DO IT"
             
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
+                guard let unwrappedSelf = self else { return }
+                
                 if success {
                     DispatchQueue.main.async {
-                        self.loggedIn = true
+                        unwrappedSelf.loggedIn = true
                         LoginRepository.loggedIn = true
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.showLoginPage = true
+                        unwrappedSelf.showLoginPage = true
                     }
                 }
             }

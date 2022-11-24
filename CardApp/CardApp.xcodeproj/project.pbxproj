@@ -62,6 +62,7 @@
 		0AEC1451292EC817006E24F0 /* MockStudentListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1450292EC817006E24F0 /* MockStudentListRepository.swift */; };
 		0AEC1454292EC939006E24F0 /* StudentListFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1453292EC939006E24F0 /* StudentListFilterUseCase.swift */; };
 		0AEC1455292ECFEB006E24F0 /* Comet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0ABC62D4292E5C33007587A4 /* Comet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0AFFD960292FA42F004F7957 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0AFFD95F292FA42F004F7957 /* CombineExtensions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFFD960292FA42F004F7957 /* CombineExtensions in Frameworks */,
 				0ABC62D5292E5C33007587A4 /* Comet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +502,7 @@
 			name = CardApp;
 			packageProductDependencies = (
 				0ABC62D4292E5C33007587A4 /* Comet */,
+				0AFFD95F292FA42F004F7957 /* CombineExtensions */,
 			);
 			productName = CardApp;
 			productReference = 0A51D2FA28F3277D00AD87A1 /* CardApp.app */;
@@ -531,6 +534,7 @@
 			mainGroup = 0A51D2F128F3277D00AD87A1;
 			packageReferences = (
 				0ABC62D3292E5C33007587A4 /* XCRemoteSwiftPackageReference "Comet" */,
+				0AFFD95E292FA42F004F7957 /* XCRemoteSwiftPackageReference "CombineExtensions" */,
 			);
 			productRefGroup = 0A51D2FB28F3277D00AD87A1 /* Products */;
 			projectDirPath = "";
@@ -823,6 +827,14 @@
 				kind = branch;
 			};
 		};
+		0AFFD95E292FA42F004F7957 /* XCRemoteSwiftPackageReference "CombineExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EtneteraMobile/CombineExtensions";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -830,6 +842,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0ABC62D3292E5C33007587A4 /* XCRemoteSwiftPackageReference "Comet" */;
 			productName = Comet;
+		};
+		0AFFD95F292FA42F004F7957 /* CombineExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AFFD95E292FA42F004F7957 /* XCRemoteSwiftPackageReference "CombineExtensions" */;
+			productName = CombineExtensions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
