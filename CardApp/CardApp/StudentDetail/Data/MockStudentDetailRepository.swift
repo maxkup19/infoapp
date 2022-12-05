@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Comet
 
 final class MockStudentDetailRepository: StudentDetailRepositoryProtocol {
-    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError> {
+    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, StudentDetailError> {
         Just(
             StudentDetail(
                 id: "id1",
@@ -27,13 +26,13 @@ final class MockStudentDetailRepository: StudentDetailRepositoryProtocol {
                 ]
             )
         )
-        .setFailureType(to: CometClientError.self)
+        .setFailureType(to: StudentDetailError.self)
         .eraseToAnyPublisher()
     }
     
-    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], CometClientError> {
+    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], StudentDetailError> {
         Just(Mock.skills)
-            .setFailureType(to: CometClientError.self)
+            .setFailureType(to: StudentDetailError.self)
             .eraseToAnyPublisher()
     }
 }

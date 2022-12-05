@@ -62,6 +62,8 @@
 		0AEC1451292EC817006E24F0 /* MockStudentListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1450292EC817006E24F0 /* MockStudentListRepository.swift */; };
 		0AEC1454292EC939006E24F0 /* StudentListFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC1453292EC939006E24F0 /* StudentListFilterUseCase.swift */; };
 		0AEC1455292ECFEB006E24F0 /* Comet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0ABC62D4292E5C33007587A4 /* Comet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0AECB435293DCE7800F591A8 /* StudentDetailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB434293DCE7800F591A8 /* StudentDetailError.swift */; };
+		0AECB437293DD0F900F591A8 /* StudentDetailError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB436293DD0F900F591A8 /* StudentDetailError+Extension.swift */; };
 		0AFFD960292FA42F004F7957 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0AFFD95F292FA42F004F7957 /* CombineExtensions */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +137,8 @@
 		0AEC144E292EC6D9006E24F0 /* StudentListFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListFetchUseCase.swift; sourceTree = "<group>"; };
 		0AEC1450292EC817006E24F0 /* MockStudentListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStudentListRepository.swift; sourceTree = "<group>"; };
 		0AEC1453292EC939006E24F0 /* StudentListFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListFilterUseCase.swift; sourceTree = "<group>"; };
+		0AECB434293DCE7800F591A8 /* StudentDetailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailError.swift; sourceTree = "<group>"; };
+		0AECB436293DD0F900F591A8 /* StudentDetailError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentDetailError+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +405,7 @@
 			children = (
 				0AEC143B292EC084006E24F0 /* StudentDetailRepository.swift */,
 				0AEC143F292EC1A1006E24F0 /* MockStudentDetailRepository.swift */,
+				0AECB436293DD0F900F591A8 /* StudentDetailError+Extension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 				0AEC143D292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift */,
 				0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift */,
 				0AEC1444292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift */,
+				0AECB434293DCE7800F591A8 /* StudentDetailError.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A51D30028F3277D00AD87A1 /* StudentDetailView.swift in Sources */,
+				0AECB437293DD0F900F591A8 /* StudentDetailError+Extension.swift in Sources */,
 				0A025F852919A21E00CB796B /* MainTabViewModel.swift in Sources */,
 				0AEC1434292EBD02006E24F0 /* LoginResponse.swift in Sources */,
 				0A51D31128F3FB6C00AD87A1 /* HomeworkItemView.swift in Sources */,
@@ -597,6 +604,7 @@
 				0A8C4E9B2909D2C4002A471B /* MainTabView.swift in Sources */,
 				0A51D31528F40A8400AD87A1 /* LevelBarView.swift in Sources */,
 				0A6509C428FD82BC00A59781 /* StudentRowView.swift in Sources */,
+				0AECB435293DCE7800F591A8 /* StudentDetailError.swift in Sources */,
 				0AEC1445292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift in Sources */,
 				0A51D30D28F32BC100AD87A1 /* SMItemView.swift in Sources */,
 				0A025F742918F82B00CB796B /* LoginRepository.swift in Sources */,

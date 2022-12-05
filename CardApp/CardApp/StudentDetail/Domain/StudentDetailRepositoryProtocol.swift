@@ -7,9 +7,8 @@
 
 import Foundation
 import Combine
-import Comet
 
 protocol StudentDetailRepositoryProtocol {
-    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError>
-    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], CometClientError>
+    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, StudentDetailError>
+    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], StudentDetailError>
 }

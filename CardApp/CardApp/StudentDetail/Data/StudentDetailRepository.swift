@@ -15,7 +15,7 @@ final class StudentDetailRepository: StudentDetailRepositoryProtocol {
                                                        logConfiguration: LogConfiguration(logLevel: .full,
                                                                                           logger: { Swift.print($0) }))
     
-    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError> {
+    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, StudentDetailError> {
         let request = RequestBuilder
             .createRequest(for: "http://emarest.cz.mass-php-1.mit.etn.cz/api/v2/participants/\(id)?sort=asc&sleepy=\(Configuration.sleepy)&badServer=\(Configuration.badServer)",
             with: .init(method: "GET",
@@ -23,11 +23,14 @@ final class StudentDetailRepository: StudentDetailRepositoryProtocol {
                         headers: ["application/json": "Content-Type"],
                         authentorized: false))
         
-        return cometClient.performAuthenticatedRequest(request,
-                                                responseType: StudentDetail.self)
+        return cometClient
+            .performAuthenticatedRequest(request,
+                                         responseType: StudentDetail.self)
+            .mapError { StudentDetailError.replace(error: $0) }
+            .eraseToAnyPublisher()
     }
     
-    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], CometClientError> {
+    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], StudentDetailError> {
         var httpBody: [String: Int] = [:]
         
         if let skills = student.skills {
@@ -43,7 +46,10 @@ final class StudentDetailRepository: StudentDetailRepositoryProtocol {
                                       headers: ["application/json": "Content-Type"],
                                       authentorized: false))
         
-        return cometClient.performAuthenticatedRequest(request,
-                                                       responseType: [StudentDetail.Skill].self)
+        return cometClient
+            .performAuthenticatedRequest(request,
+                                         responseType: [StudentDetail.Skill].self)
+            .mapError { StudentDetailError.replace(error: $0) }
+            .eraseToAnyPublisher()
     }
 }

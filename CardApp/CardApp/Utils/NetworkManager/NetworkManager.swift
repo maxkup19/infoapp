@@ -14,7 +14,7 @@ final class NetworkManager {
         
         let request = Just(URL(string: urlString))
             .flatMap { url -> AnyPublisher<URLRequest, NetworkManagerError> in
-                guard let url = url else {
+                guard let url else {
                     return Fail(error: NetworkManagerError.urlCreationFailed)
                         .eraseToAnyPublisher()
                 }
