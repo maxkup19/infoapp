@@ -26,7 +26,7 @@ final class StudentDetailRepository: StudentDetailRepositoryProtocol {
         return cometClient
             .performAuthenticatedRequest(request,
                                          responseType: StudentDetail.self)
-            .mapError { StudentDetailError.replace(error: $0) }
+            .mapError { StudentDetailError.replaceCometError($0) }
             .eraseToAnyPublisher()
     }
     
@@ -49,7 +49,7 @@ final class StudentDetailRepository: StudentDetailRepositoryProtocol {
         return cometClient
             .performAuthenticatedRequest(request,
                                          responseType: [StudentDetail.Skill].self)
-            .mapError { StudentDetailError.replace(error: $0) }
+            .mapError { StudentDetailError.replaceCometError( $0) }
             .eraseToAnyPublisher()
     }
 }

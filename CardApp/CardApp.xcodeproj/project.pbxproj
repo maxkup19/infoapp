@@ -64,6 +64,8 @@
 		0AEC1455292ECFEB006E24F0 /* Comet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0ABC62D4292E5C33007587A4 /* Comet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0AECB435293DCE7800F591A8 /* StudentDetailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB434293DCE7800F591A8 /* StudentDetailError.swift */; };
 		0AECB437293DD0F900F591A8 /* StudentDetailError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB436293DD0F900F591A8 /* StudentDetailError+Extension.swift */; };
+		0AECB439293DD28700F591A8 /* StudentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB438293DD28700F591A8 /* StudentError.swift */; };
+		0AECB43B293DD2A400F591A8 /* StudentError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECB43A293DD2A400F591A8 /* StudentError+Extension.swift */; };
 		0AFFD960292FA42F004F7957 /* CombineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 0AFFD95F292FA42F004F7957 /* CombineExtensions */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +141,8 @@
 		0AEC1453292EC939006E24F0 /* StudentListFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListFilterUseCase.swift; sourceTree = "<group>"; };
 		0AECB434293DCE7800F591A8 /* StudentDetailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailError.swift; sourceTree = "<group>"; };
 		0AECB436293DD0F900F591A8 /* StudentDetailError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentDetailError+Extension.swift"; sourceTree = "<group>"; };
+		0AECB438293DD28700F591A8 /* StudentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentError.swift; sourceTree = "<group>"; };
+		0AECB43A293DD2A400F591A8 /* StudentError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentError+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +421,6 @@
 				0AEC143D292EC098006E24F0 /* StudentDetailRepositoryProtocol.swift */,
 				0AEC1442292EC27A006E24F0 /* StudentDetailFetchWithIdUseCase.swift */,
 				0AEC1444292EC348006E24F0 /* StudentUpdateSkillsUseCase.swift */,
-				0AECB434293DCE7800F591A8 /* StudentDetailError.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2A1DB1290AEC560093C2E4 /* StudentDetail.swift */,
+				0AECB434293DCE7800F591A8 /* StudentDetailError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,6 +472,7 @@
 			children = (
 				0AEC1449292EC57B006E24F0 /* StudentListRepository.swift */,
 				0AEC1450292EC817006E24F0 /* MockStudentListRepository.swift */,
+				0AECB43A293DD2A400F591A8 /* StudentError+Extension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				0A78B6E228FD5F2E00442A5D /* Student.swift */,
+				0AECB438293DD28700F591A8 /* StudentError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -582,6 +588,7 @@
 				0A025F89291AB9BD00CB796B /* SkillsEditorView.swift in Sources */,
 				0A8C4E9F2909D8BE002A471B /* AccountView.swift in Sources */,
 				0A2A1DB2290AEC560093C2E4 /* StudentDetail.swift in Sources */,
+				0AECB43B293DD2A400F591A8 /* StudentError+Extension.swift in Sources */,
 				0AEC144C292EC58B006E24F0 /* StudentListRepositoryProtocol.swift in Sources */,
 				0AEC1451292EC817006E24F0 /* MockStudentListRepository.swift in Sources */,
 				0AEC1436292EBDE2006E24F0 /* LoginUseCase.swift in Sources */,
@@ -592,6 +599,7 @@
 				0AEC1454292EC939006E24F0 /* StudentListFilterUseCase.swift in Sources */,
 				0A8A211C291E51B4006041BC /* ShakeGesture.swift in Sources */,
 				0AEC143C292EC084006E24F0 /* StudentDetailRepository.swift in Sources */,
+				0AECB439293DD28700F591A8 /* StudentError.swift in Sources */,
 				0A025F7B2918FB1D00CB796B /* LoginViewModel.swift in Sources */,
 				0A6509C828FD86CE00A59781 /* Homework.swift in Sources */,
 				0A8C4EA12909DB8C002A471B /* LoginRowView.swift in Sources */,

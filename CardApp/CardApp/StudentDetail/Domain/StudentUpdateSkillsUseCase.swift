@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Comet
 
 protocol StudentUpdateSkillsUseCaseProtocol {
-    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], CometClientError>
+    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], StudentDetailError>
 }
 
 final class StudentUpdateSkillsUseCase: StudentUpdateSkillsUseCaseProtocol {
@@ -20,7 +19,7 @@ final class StudentUpdateSkillsUseCase: StudentUpdateSkillsUseCaseProtocol {
         self.studentRepo = studentRepo
     }
     
-    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], CometClientError> {
+    func updateSkills(for student: StudentDetail) -> AnyPublisher<[StudentDetail.Skill], StudentDetailError> {
         studentRepo.updateSkills(for: student)
     }
 }

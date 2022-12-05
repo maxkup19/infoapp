@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Comet
 import Combine
 
 protocol StudentDetailFetchWithIdUseCaseProtocol {
-    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError>
+    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, StudentDetailError>
 }
 
 final class StudentDetailFetchWithIdUseCase: StudentDetailFetchWithIdUseCaseProtocol {
@@ -20,7 +19,7 @@ final class StudentDetailFetchWithIdUseCase: StudentDetailFetchWithIdUseCaseProt
         self.studentRepo = studentRepo
     }
     
-    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, CometClientError> {
+    func fetchStudent(with id: String) -> AnyPublisher<StudentDetail, StudentDetailError> {
         studentRepo.fetchStudent(with: id)
     }
 }

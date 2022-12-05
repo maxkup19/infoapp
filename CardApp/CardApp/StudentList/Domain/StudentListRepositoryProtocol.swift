@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Comet
 import Combine
 
 protocol StudentListRepositoryProtocol {
-    func fetchStudentList() -> AnyPublisher<[Student], CometClientError>
+    func fetchStudentList() -> AnyPublisher<[Student], StudentError>
 }

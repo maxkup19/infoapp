@@ -15,7 +15,7 @@ final class StudentListRepository: StudentListRepositoryProtocol {
                                                        logConfiguration: LogConfiguration(logLevel: .full,
                                                                                           logger: { Swift.print($0) }))
     
-    func fetchStudentList() -> AnyPublisher<[Student], CometClientError> {
+    func fetchStudentList() -> AnyPublisher<[Student], StudentError> {
         let request = RequestBuilder
             .createRequest(for: "http://emarest.cz.mass-php-1.mit.etn.cz/api/v2/participants?sort=asc&sleepy=\(Configuration.sleepy)&badServer=\(Configuration.badServer)",
                            with: .init(method: "GET",
@@ -23,7 +23,11 @@ final class StudentListRepository: StudentListRepositoryProtocol {
                                        headers: ["application/json": "Content-Type"],
                                        authentorized: false))
         
-        return cometClient.performAuthenticatedRequest(request,
-                                                       responseType: [Student].self)
+        return cometClient
+            .performAuthenticatedRequest(request,
+                                         responseType: [Student].self)
+            .mapError { StudentError.replaceCometError($0) }
+            .eraseToAnyPublisher()
+        
     }
 }

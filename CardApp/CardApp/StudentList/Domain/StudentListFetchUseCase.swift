@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Comet
 
 protocol StudentListFetchUseCaseProtocol {
-    func fetchStudentList() -> AnyPublisher<[Student], CometClientError>
+    func fetchStudentList() -> AnyPublisher<[Student], StudentError>
 }
 
 final class StudentListFetchUseCase: StudentListFetchUseCaseProtocol {
@@ -20,7 +19,7 @@ final class StudentListFetchUseCase: StudentListFetchUseCaseProtocol {
         self.studentRepo = studentRepo
     }
     
-    func fetchStudentList() -> AnyPublisher<[Student], CometClientError> {
+    func fetchStudentList() -> AnyPublisher<[Student], StudentError> {
         studentRepo.fetchStudentList()
     }
 }

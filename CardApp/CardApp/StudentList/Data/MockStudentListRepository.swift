@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Comet
 
 final class MockStudentListRepository: StudentListRepositoryProtocol {
-    func fetchStudentList() -> AnyPublisher<[Student], CometClientError> {
+    func fetchStudentList() -> AnyPublisher<[Student], StudentError> {
         Just(
             [
                 Student(
@@ -35,7 +34,7 @@ final class MockStudentListRepository: StudentListRepositoryProtocol {
                 )
             ]
         )
-        .setFailureType(to: CometClientError.self)
+        .setFailureType(to: StudentError.self)
         .eraseToAnyPublisher()
     }
 }
