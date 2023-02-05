@@ -55,17 +55,17 @@ final class KeyChainRepository {
         )
         
         guard status != errSecItemNotFound else {
-            print("Record not found")
+            debugPrint("Record not found")
             return nil
         }
         
         guard status == errSecSuccess else {
-            print("Unexpected status")
+            debugPrint("Unexpected status")
             return nil
         }
         
         guard let passwordData = itemCopy as? Data else {
-            print("Invalid record format")
+            debugPrint("Invalid record format")
             return nil
         }
         
